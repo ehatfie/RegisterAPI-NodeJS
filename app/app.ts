@@ -20,7 +20,7 @@ fs.readdirSync(__dirname + '/routes').forEach(function (routeConfig: string) {
     let route = require(__dirname + '/routes/' + routeConfig);
     route.routes(api);
   }
-});
+});//
 
 api.listen(settings.port, function () {
   logger.info(`INFO: ${settings.name} is running at ${api.url}`);
