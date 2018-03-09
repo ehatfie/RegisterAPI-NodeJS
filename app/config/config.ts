@@ -13,3 +13,4 @@ export let settings: Config = {
     password: (process.env.PGPASSWORD || '@irtime0')
   }
 };
+//test
