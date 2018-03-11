@@ -8,9 +8,9 @@ export let settings: Config = {
   db: {
     host: (process.env.PGHOST || 'localhost'), // Server hosting the postgres database 
     port: (isNaN(Number(process.env.PGPORT)) ? 5432 : Number(process.env.PGPORT)),
-    database: (process.env.PGDATABASE || 'uarkregserv'),
-    user: (process.env.PGUSER || 'registerappadmin'),
-    password: (process.env.PGPASSWORD || '@irtime0')
+    database: (process.env.PGDATABASE || 'dcb0l0qhgjmaao'),
+    user: (process.env.PGUSER || 'adqrtfjhpfyzau'),
+    password: (process.env.PGPASSWORD || '9854a27bf9d39f239d2303d2ebd7da671cdbe88d13ca8d53a71d1e1700d3a3b6')
   }
 };
 //test
