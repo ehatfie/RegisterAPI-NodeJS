@@ -12,9 +12,10 @@ export default class getSales{
 
 
     private _hackathonRepository: IHackathonRepository;
-    //public get hackathonRepository (): any { return this._basicRepository; }
-    //public set hackathonRepository (value: any) {this._basicRepository = value; }
+    public get hackathonRepository (): any { return this._hackathonRepository; }
+    public set hackathonRepository (value: any) {this._hackathonRepository = value; }
 
-    constructor({hackathonRepository = new hackathonRepository() }: any = {}){ 
+    constructor({hackathonRepository = new HackathonRepository() }: any = {}){ 
+        this._hackathonRepository = hackathonRepository;
     }
 }
