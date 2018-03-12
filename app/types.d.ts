@@ -1,6 +1,7 @@
 import BaseEntity from './models/entities/baseEntity';
 import ProductEntity from './models/entities/productEntity';
 import BasicEntity from './models/entities/basicEntity';
+import HackathonEntity from './models/entities/hackathonEntity';
 
 export interface Config {
   name: string;
@@ -42,4 +43,7 @@ export interface IBasicRepository<T extends BasicEntity> {
  all(): Promise<T[]>;
 }
 
+export interface IHackathonRepository extends IBasicRepository<HackathonEntity>{
+
+}
 

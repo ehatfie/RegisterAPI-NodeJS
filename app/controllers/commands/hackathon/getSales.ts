@@ -9,12 +9,12 @@ export default class getSales{
             rejectToRouter({ status: 500, message:"sorry", data:{} });
         });
     }
-}
 
-private _hackathonRepository: IHackathonRepository;
-public get hackathonRepository (): IHackathonRepository { return this._hackathonRepository; }
-public set hackathonRepository (value: IHackathonRepository) {this._hackathonRepository = value; }
 
-constructor({ hackathonRepository = new HackathonRepository() }: any = {}) {
-    this._hackathonRepository = hackathonRepository;
+    private _hackathonRepository: IHackathonRepository;
+    //public get hackathonRepository (): any { return this._basicRepository; }
+    //public set hackathonRepository (value: any) {this._basicRepository = value; }
+
+    constructor({hackathonRepository = new hackathonRepository() }: any = {}){ 
+    }
 }

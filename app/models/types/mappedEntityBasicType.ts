@@ -3,5 +3,6 @@ import * as moment from 'moment';
 
 export class MappedEntityBasicType{
     constructor(
-        public id: string = uuid.empty()) { }
+        public id: string = uuid.empty(),
+        public createdOn: moment.Moment = moment()) { }
 }

@@ -1,11 +1,17 @@
 const uuid = require('uuidv4');
 
+import * as moment from 'moment';
 import {MappedEntityBasicType} from '../types/mappedEntityBasicType';
+import {BaseFieldName} from '../constants/fieldNames/baseFieldNames';
 
 export default abstract class basicEntity {
     private _id: string;
     public get id (): string { return this._id; }
     public set id (value: string) { this._id = value; }
+
+    private _createdOn: moment.Moment;
+    public get createdOn (): moment.Moment { return this._createdOn; }
+    public set createdOn (value: moment.Moment) { this._createdOn = value; }
 
     private _tableName: string;
     public get tableName () { return this._tableName; }
@@ -15,6 +21,10 @@ export default abstract class basicEntity {
             id: this._id,
         };
     }
+    public fillFromRecord(row: any): void {
+
+        this._id = row[BaseFieldName.ID];
+    }
 
     constructor(request?: MappedEntityBasicType, tableName: string = '') {
         //this._isNew = true;
@@ -23,7 +33,7 @@ export default abstract class basicEntity {
         
         this._tableName = tableName;
         this._id = (request ? request.id : uuid.empty());
-        //this._createdOn = (request ? request.createdOn : moment());
+        this._createdOn = (request ? request.createdOn : moment());
     }
 }
 
