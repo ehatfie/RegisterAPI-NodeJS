@@ -25,7 +25,9 @@ export default abstract class basicEntity {
 
         this._id = row[BaseFieldName.ID];
     }
-
+    protected fillRecord(): any {
+        return ((this._id && (this._id !== uuid.empty())) ? { [BaseFieldName.ID]: this._id } : {});
+    }
     constructor(request?: MappedEntityBasicType, tableName: string = '') {
         //this._isNew = true;
         //this._isDirty = true;

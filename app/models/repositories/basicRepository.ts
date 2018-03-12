@@ -11,6 +11,34 @@ export default abstract class BasicRepository<T extends BasicEntity> implements 
     get tableName (): string { return this._tableName; }
 
     protected abstract createOne(row: any): T;
+    
+    protected queryAll(query: string, values: any): Promise<T[]> {
+        var self: BasicRepository<T> = this;
+
+        return new Promise(function(resolveToController, rejectToController) {
+            db.any(query, values)
+                .then((data: any) => {
+                        var results: T[] = [];
+                        for (var i = 0; i < data.length; i++) {
+                            results.push(
+                                self.createOne(data[i])
+                            );
+                        }
+    
+                        resolveToController(results);
+                    }, (reason: any) => {
+                        rejectToController(reason);
+                    });
+        });
+    }
+    constructor(tableName: string){
+        this._tableName = tableName;
+    }
+   
+}
+
+
+/* protected abstract createOne(row: any): T;
 
     public all(): Promise<T[]> {
         return this.allWhere();
@@ -86,4 +114,4 @@ export default abstract class BasicRepository<T extends BasicEntity> implements 
     constructor(tableName: string){
         this._tableName = tableName;
     }
-}
+    */

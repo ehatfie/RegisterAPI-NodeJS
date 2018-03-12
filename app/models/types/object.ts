@@ -5,7 +5,7 @@ import {MappedEntityBasicType} from './mappedEntityBasicType';
 export class Object extends MappedEntityBasicType{
     constructor(
         public id: string = uuid.empty(),
-        public value: number = 0)
+        public amount: number = 0)
             { super(id) };
     
 }
