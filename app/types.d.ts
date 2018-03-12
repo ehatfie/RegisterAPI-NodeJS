@@ -1,5 +1,6 @@
 import BaseEntity from './models/entities/baseEntity';
 import ProductEntity from './models/entities/productEntity';
+import BasicEntity from './models/entities/basicEntity';
 
 export interface Config {
   name: string;
@@ -35,4 +36,8 @@ export interface IBaseRepository<T extends BaseEntity> {
 
 export interface IProductRepository extends IBaseRepository<ProductEntity> {
   byLookupCode(lookupCode: string): Promise<ProductEntity | undefined>;
+}
+
+export interface IBasicRepository<T extends BasicEntity> {
+
 }
