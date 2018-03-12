@@ -3,10 +3,28 @@ import RouteController from './routeController';
 import getSales from './commands/hackathon/getSales';
 import { IHackathonRepository, CommandResponse } from '../types';
 import HackathonRepository from '../models/repositories/hackathonRepository';
+import HackathonEntity from '../models/entities/hackathonEntity';
 
 export default class HackathonRouteController extends RouteController{
     public getNumSales(req: restify.Request, res: restify.Response, next: restify.Next){
-		HackathonRouteController.hackathonRepository.get(1);
+        HackathonRouteController.hackathonRepository.get("1")
+			.then((hackathonEntity: (HackathonEntity | undefined))=>{
+				if(hackathonEntity){
+					res.send(200, hackathonEntity.toJSON());
+				} else{
+					res.send(404);
+				}
+				return next();
+			}, (reason: any) => {
+				return next(new Error(reason.message));
+			});
+	}
+	
+
+	
+	private static hackathonRepository: IHackathonRepository = new HackathonRepository;
+}
+/*public getNumSales(req: restify.Request, res: restify.Response, next: restify.Next){
         (new getSales({ hackathonRepository: HackathonRouteController.hackathonRepository}))
             .execute()
             .then((response: CommandResponse) => {
@@ -17,6 +35,4 @@ export default class HackathonRouteController extends RouteController{
 				return next();
 			});
 	}
-	
-	private static hackathonRepository: IHackathonRepository = new HackathonRepository;
-}
+	*/
