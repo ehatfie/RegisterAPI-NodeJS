@@ -1,3 +1,4 @@
 export enum PostgreType {
-    UUID = 'uuid'
+    UUID = 'uuid',
+    INT = 'int'
 };

@@ -72,7 +72,7 @@ export default abstract class BasicRepository<T extends BasicEntity> implements 
                     new WhereClause({
                         tableName: this._tableName,
                         fieldName: BasicFieldName.ID,
-                        fieldType: PostgreType.UUID,
+                        fieldType: PostgreType.INT,
                         comparison: SQLComparison.EQUALS
                     })
                 ]
