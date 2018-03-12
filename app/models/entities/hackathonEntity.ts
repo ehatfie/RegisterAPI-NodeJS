@@ -1,7 +1,14 @@
 const uuid = require('uuidv4');
 import BasicEntity from './basicEntity';
 import {Object} from '../types/object';
+import {DatabaseTableName} from '../constants/databaseTableNames';
+import {HackathonFieldName} from '../constants/fieldNames/hackathonFieldNames';
 
 export default class HackathonEntity extends BasicEntity {
-
+    public toJSON(): Object{
+        return new Object(
+            super.id
+            //this.value
+        );
+    }
 }
