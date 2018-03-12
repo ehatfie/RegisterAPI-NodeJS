@@ -16,7 +16,8 @@ export default class HackathonEntity extends BasicEntity {
     public toJSON(): Object{
         return new Object(
             super.id, // maybe dont need
-            this._amount);
+            this._amount,
+            super.createdOn);
     }
     protected fillRecord(): any {
         var record: any = super.fillRecord();

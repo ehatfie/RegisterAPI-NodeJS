@@ -5,8 +5,8 @@ import {MappedEntityBasicType} from './mappedEntityBasicType';
 export class Object extends MappedEntityBasicType{
     constructor(
         public id: string = uuid.empty(),
-        public createdOn: moment.Moment = moment(),
-        public amount: number = 0) { 
-            super(id, createdOn) };
+        public amount: number = 0,
+        public createdOn: moment.Moment = moment())
+            {super(id, createdOn) };
     
 }
