@@ -1,6 +1,6 @@
 const uuid = require('uuidv4');
 import BasicEntity from './basicEntity';
-import {Object} from '../types/object';
+import {Data} from '../types/object';
 import {DatabaseTableName} from '../constants/databaseTableNames';
 import {HackathonFieldName} from '../constants/fieldNames/hackathonFieldNames';
 
@@ -13,8 +13,8 @@ export default class HackathonEntity extends BasicEntity {
             this._amount = value;
         }
     }
-    public toJSON(): Object{
-        return new Object(
+    public toJSON(): Data{
+        return new Data(
             super.id, // maybe dont need
             this._amount,
             super.createdOn);
@@ -25,9 +25,9 @@ export default class HackathonEntity extends BasicEntity {
         return record;
     }
 
-    constructor(objectRequest?: Object){
-        super(objectRequest, DatabaseTableName.EXAMPLE);
+    constructor(dataRequest?: Data){
+        super(dataRequest, DatabaseTableName.EXAMPLE);
 
-        this._amount = (objectRequest ? objectRequest.amount : -1);
+        this._amount = (dataRequest ? dataRequest.amount : -1);
     }
 }
