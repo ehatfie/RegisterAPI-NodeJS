@@ -19,6 +19,7 @@ export default abstract class basicEntity {
     public toJSON(): any {
         return {
             id: this._id,
+            createdOn: this._createdOn
         };
     }
     public fillFromRecord(row: any): void {
