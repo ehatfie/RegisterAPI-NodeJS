@@ -39,5 +39,7 @@ export interface IProductRepository extends IBaseRepository<ProductEntity> {
 }
 
 export interface IBasicRepository<T extends BasicEntity> {
-
+ all(): Promise<T[]>;
 }
+
+

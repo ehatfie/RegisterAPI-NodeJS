@@ -16,9 +16,6 @@ export default abstract class BasicRepository<T extends BasicEntity> implements 
         return this.allWhere();
     }
 
-
-
-
     protected allWhere({ joinContainers = [], whereContainer = undefined, orderByContainers = [], limit = BasicRepository._invalidIndex, offset = BasicRepository._invalidIndex, values = undefined }: any = {}): Promise<T[]> {
         return this.queryAll(
             this.buildSelectQuery([ this.buildDefaultProjection() ], joinContainers, whereContainer, orderByContainers, limit, offset)
