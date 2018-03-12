@@ -9,7 +9,7 @@ function hackathonRoute(server: restify.Server) {
         res.send(200, 'Successful test. (Product routing).');
     });
     */
-    server.get({ path: '/api/hackathon/', version: '0.0.1'}, routeController.getNumSales);
+    server.get({ path: '/api/hackathon/:id', version: '0.0.1'}, routeController.getNumSales);
 
 
 }
