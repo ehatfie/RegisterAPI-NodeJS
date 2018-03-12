@@ -7,7 +7,7 @@ import HackathonEntity from '../models/entities/hackathonEntity';
 
 export default class HackathonRouteController extends RouteController{
     public getNumSales(req: restify.Request, res: restify.Response, next: restify.Next){
-		res.send(200, 'got something') ;
+		//res.send(200, 'got something') ;
 		HackathonRouteController.hackathonRepository.get("1")
 			.then((hackathonEntity: (HackathonEntity | undefined))=>{
 				if(hackathonEntity){
