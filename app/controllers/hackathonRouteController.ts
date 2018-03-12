@@ -10,6 +10,7 @@ export default class HackathonRouteController extends RouteController{
 		//res.send(200, 'got something') ;
 		HackathonRouteController.hackathonRepository.get("1")
 			.then((hackathonEntity: (HackathonEntity | undefined))=>{
+				console.log("aaa");
 				if(hackathonEntity){
 					res.send(200, 'get something') ;
 				} else{

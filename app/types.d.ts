@@ -44,6 +44,5 @@ export interface IBasicRepository<T extends BasicEntity> {
 }
 
 export interface IHackathonRepository extends IBasicRepository<HackathonEntity>{
-
 }
 
