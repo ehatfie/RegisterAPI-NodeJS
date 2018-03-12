@@ -15,7 +15,7 @@ export default class HackathonEntity extends BasicEntity {
     }
     public toJSON(): Data{
         return new Data(
-            'testtest', // maybe dont need
+            super.id, // maybe dont need
             this._amount,
             super.createdOn);
     }
