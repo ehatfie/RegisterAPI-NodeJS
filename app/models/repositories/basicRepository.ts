@@ -3,6 +3,8 @@ import {IBasicRepository} from '../../types';
 import db = require('./helpers/databaseConnection');
 import JoinContainer from './helpers/join/JoinContainer';
 import {SQLKeyword} from '../constants/sql/keywords';
+import OrderByContainer from './helpers/orderBy/OrderByContainer';
+import WhereContainer from './helpers/where/WhereContainer';
 
 export default abstract class BasicRepository<T extends BasicEntity> implements IBasicRepository<T> {
     private _tableName: string;
@@ -17,7 +19,7 @@ export default abstract class BasicRepository<T extends BasicEntity> implements 
 
 
 
-    protected allWhere({ joinContainers = [], whereContainer = undefined, orderByContainers = [], limit = BasicRepository._invalidIndex, offset = BaseRepository._invalidIndex, values = undefined }: any = {}): Promise<T[]> {
+    protected allWhere({ joinContainers = [], whereContainer = undefined, orderByContainers = [], limit = BasicRepository._invalidIndex, offset = BasicRepository._invalidIndex, values = undefined }: any = {}): Promise<T[]> {
         return this.queryAll(
             this.buildSelectQuery([ this.buildDefaultProjection() ], joinContainers, whereContainer, orderByContainers, limit, offset)
             , values
@@ -62,7 +64,7 @@ export default abstract class BasicRepository<T extends BasicEntity> implements 
     }
 
     protected queryAll(query: string, values: any): Promise<T[]> {
-        var self: BaseRepository<T> = this;
+        var self: BasicRepository<T> = this;
 
         return new Promise(function(resolveToController, rejectToController) {
             db.any(query, values)
@@ -80,6 +82,9 @@ export default abstract class BasicRepository<T extends BasicEntity> implements 
                     });
         });
     }
+
+    private static _invalidIndex: number = -1;
+    private static _existsSelectCount: string = '1';
 
     constructor(tableName: string){
         this._tableName = tableName;
