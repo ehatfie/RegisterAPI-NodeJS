@@ -6,6 +6,7 @@ import HackathonRepository from '../models/repositories/hackathonRepository';
 
 export default class HackathonRouteController extends RouteController{
     public getNumSales(req: restify.Request, res: restify.Response, next: restify.Next){
+		HackathonRouteController.hackathonRepository.get(1);
         (new getSales({ hackathonRepository: HackathonRouteController.hackathonRepository}))
             .execute()
             .then((response: CommandResponse) => {
