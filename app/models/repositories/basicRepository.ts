@@ -115,6 +115,7 @@ export default abstract class BasicRepository<T extends BasicEntity> implements 
     }
 
     private static _invalidIndex: number = -1;
+    
     constructor(tableName: string){
         this._tableName = tableName;
     }

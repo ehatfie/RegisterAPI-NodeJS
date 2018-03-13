@@ -17,6 +17,11 @@ export default class HackathonEntity extends BasicEntity {
             this._amount,
             super.createdOn);
     }
+    public fillFromRecord(row: any): void {
+        super.fillFromRecord(row);
+
+        this._amount = row[HackathonFieldName.AMOUNT];
+    }
     protected fillRecord(): any {
         var record: any = super.fillRecord();
         record[HackathonFieldName.AMOUNT] = this._amount;
