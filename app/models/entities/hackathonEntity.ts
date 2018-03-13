@@ -9,9 +9,7 @@ export default class HackathonEntity extends BasicEntity {
     private _amount: number;
     public get amount (): number {return this._amount};
     public set amount (value: number) {
-        if(this._amount !== value) {
-            this._amount = value;
-        }
+        this._amount = value;
     }
     public toJSON(): Data{
         return new Data(
@@ -21,6 +19,7 @@ export default class HackathonEntity extends BasicEntity {
     }
     protected fillRecord(): any {
         var record: any = super.fillRecord();
+        record[HackathonFieldName.AMOUNT] = this._amount;
      
         return record;
     }
