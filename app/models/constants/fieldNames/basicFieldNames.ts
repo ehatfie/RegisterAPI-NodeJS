@@ -1,3 +1,4 @@
 export enum BasicFieldName{
-    ID = 'id'
+    ID = 'id',
+    CREATED_ON = 'createdon'
 };

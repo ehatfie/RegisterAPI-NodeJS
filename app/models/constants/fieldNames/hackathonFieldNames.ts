@@ -1,4 +1,4 @@
 export enum HackathonFieldName{
-    ID = 'id'
-    //Value = 'value'
+    ID = 'id',
+    AMOUNT = 'amount'
 }
